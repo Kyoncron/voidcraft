@@ -1,0 +1,26 @@
+services:
+  mc:
+    build: .
+    container_name: mineworld
+    restart: unless-stopped
+    environment:
+      TZ: ${TZ}
+      JAVA_XMS: ${XMS}
+      JAVA_XMX: ${XMX}
+      PARMS: ${PRAMS}
+      ENABLE_RCON: ${ENABLE_RCON}
+      RCON_PASS: ${RCON_PASS}
+      SECURE_PROFILE: ${SECURE_PROFILE}
+      GAMEMODE: ${GAMEMODE}
+      HARDCORE: ${HARDCORE}
+      MAX_PLAYERS: ${MAX_PLAYERS}
+      MOTD: ${MOTD}
+      PVP: ${PVP}
+      ONLINE_MODE: ${ONLINE_MODE}
+      DIFFICULTY: ${DIFFICULTY}
+      PRAMS: ${PRAMS}
+    ports:
+      - ${TCP_PORT}:${TCP_PORT}
+      - ${RCON_PORT}
+    volumes:
+      - ${DIRDATA}:/data
