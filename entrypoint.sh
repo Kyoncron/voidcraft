@@ -28,20 +28,20 @@ fi
 
 screen -wipe >/dev/null 2>&1 || true
 
-screen -DmS "$SESSION" sh -lc "exec java -Xms$JAVA_XMS -Xmx$JAVA_XMX $PARAMS -jar /data/server.jar nogui"
+screen -DmS "$SNAME" sh -lc "exec java -Xms$JAVA_XMS -Xmx$JAVA_XMX $PARAMS -jar /data/server.jar nogui"
 
 # Espera a que screen exista
 for i in 1 2 3 4 5; do
-  screen -list | grep -q "\.${SESSION}" && break
+  screen -list | grep -q "\.${SNAME}" && break
   sleep 1
 done
 
-echo "Minecraft corriendo en screen session: $SESSION"
-echo "Para mandar comandos: screen -S $SESSION -p 0 -X stuff 'say hola$(printf \\r)'"
+echo "Minecraft corriendo en screen session: $SNAME"
+echo "Para mandar comandos: screen -S $SNAME -p 0 -X stuff 'say hola$(printf \\r)'"
 
 # Mantén el contenedor vivo mientras viva el server
 # (si el server se cae, screen se termina y salimos)
-while screen -list | grep -q "\.${SESSION}"; do
+while screen -list | grep -q "\.${SNAME}"; do
   sleep 2
 done
 
