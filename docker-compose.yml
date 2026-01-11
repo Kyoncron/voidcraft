@@ -19,6 +19,7 @@ services:
       ONLINE_MODE: ${ONLINE_MODE}
       DIFFICULTY: ${DIFFICULTY}
       PRAMS: ${PRAMS}
+      SNAME: ${SNAME}
     ports:
       - ${TCP_PORT}:${TCP_PORT}
       - ${RCON_PORT}
