@@ -26,24 +26,6 @@ if [[ -f "server.properties" ]]; then
   set_prop difficulty "${DIFFICULTY}"
 fi
 
-screen -wipe >/dev/null 2>&1 || true
+echo "Iniciando servidor Minecraft..."
 
-screen -DmS "$SNAME" sh -lc "exec java -Xms$JAVA_XMS -Xmx$JAVA_XMX $PARAMS -jar /data/server.jar nogui"
-
-# Espera a que screen exista
-for i in 1 2 3 4 5; do
-  screen -list | grep -q "\.${SNAME}" && break
-  sleep 1
-done
-
-echo "Minecraft corriendo en screen session: $SNAME"
-echo "Para mandar comandos: screen -S $SNAME -p 0 -X stuff 'say hola$(printf \\r)'"
-
-# Mantén el contenedor vivo mientras viva el server
-# (si el server se cae, screen se termina y salimos)
-while screen -list | grep -q "\.${SNAME}"; do
-  sleep 2
-done
-
-echo "La sesión screen terminó; saliendo."
-exit 1
+exec java -Xms$JAVA_XMS -Xmx$JAVA_XMX $PARAMS -jar /data/server.jar nogui
