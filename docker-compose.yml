@@ -21,8 +21,8 @@ services:
       PARAMS: ${PRAMS}
       SNAME: ${SNAME}
     ports:
-      - ${TCP_PORT}:${TCP_PORT}
-      - ${UDP_PORT}:${UDP_PORT}
+      - ${TCP_PORT}:${TCP_PORT}/tcp
+      - ${UDP_PORT}:${UDP_PORT}/udp
       - ${RCON_PORT}
     volumes:
       - ${DIRDATA}:/data
