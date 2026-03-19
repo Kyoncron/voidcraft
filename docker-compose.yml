@@ -22,6 +22,7 @@ services:
       SNAME: ${SNAME}
     ports:
       - ${TCP_PORT}:${TCP_PORT}
+      - ${UDP_PORT}:${UDP_PORT}
       - ${RCON_PORT}
     volumes:
       - ${DIRDATA}:/data
