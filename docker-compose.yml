@@ -24,7 +24,7 @@ services:
       - ${TCP_PORT}:${TCP_PORT}/tcp
       - ${UDP_PORT}:${UDP_PORT}/udp
       - ${MOD_PORTS}
-      - ${VOICE_PORTS}
+      - ${VOICE_PORTS}/udp
       - ${RCON_PORT}
     volumes:
       - ${DIRDATA}:/data
