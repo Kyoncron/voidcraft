@@ -23,9 +23,10 @@ services:
       - ${UDP_PORT}:${UDP_PORT}/udp
       - ${MOD_PORTS}
       - ${VOICE_PORTS}/udp
-      
+
     expose:
-      - ${RCON_PORT}
+      - "${RCON_PORT}"
+      
     volumes:
       - ${DIRDATA}:/data
     networks:
