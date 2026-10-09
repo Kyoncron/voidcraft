@@ -7,7 +7,6 @@ services:
       TZ: ${TZ}
       JAVA_XMS: ${XMS}
       JAVA_XMX: ${XMX}
-      PARMS: ${PRAMS}
       ENABLE_RCON: ${ENABLE_RCON}
       RCON_PASS: ${RCON_PASS}
       SECURE_PROFILE: ${SECURE_PROFILE}
@@ -19,12 +18,19 @@ services:
       ONLINE_MODE: ${ONLINE_MODE}
       DIFFICULTY: ${DIFFICULTY}
       PARAMS: ${PRAMS}
-      SNAME: ${SNAME}
     ports:
       - ${TCP_PORT}:${TCP_PORT}/tcp
       - ${UDP_PORT}:${UDP_PORT}/udp
       - ${MOD_PORTS}
       - ${VOICE_PORTS}/udp
+      
+    expose:
       - ${RCON_PORT}
     volumes:
       - ${DIRDATA}:/data
+    networks:
+      - dokploy-network
+
+  networks:
+    dokploy-network:
+      external: true
