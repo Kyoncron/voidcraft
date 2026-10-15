@@ -19,8 +19,8 @@ services:
       DIFFICULTY: ${DIFFICULTY}
       PARAMS: ${PRAMS}
     ports:
-      - ${TCP_PORT}:${TCP_PORT}/tcp
-      - ${UDP_PORT}:${UDP_PORT}/udp
+      - ${TCP_PORT}/tcp
+      - ${UDP_PORT}/udp
       - ${MOD_PORTS}
       - ${VOICE_PORTS}/udp
 
