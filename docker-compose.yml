@@ -1,7 +1,7 @@
 services:
   mc:
     build: .
-    container_name: mineworld
+    container_name: ${DOCKER_NAME}
     restart: unless-stopped
     environment:
       TZ: ${TZ}
