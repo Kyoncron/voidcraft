@@ -28,4 +28,12 @@ if [[ -f "server.properties" ]]; then
   set_prop max-players "${MAX_PLAYERS}"
 fi
 
-exec java -Xms"$JAVA_XMS" -Xmx"$JAVA_XMX" $PARAMS -jar /data/server.jar nogui
+if ! command -v screen >/dev/null 2>&1; then
+  echo "Error: screen no está instalado en el contenedor." >&2
+  exit 1
+fi
+
+# -D -m keeps screen running until the server exits, without requiring a TTY.
+# Log the session to stdout so docker logs still shows the server console.
+exec screen -D -m -S minecraft -L -Logfile /dev/stdout \
+  bash -c 'exec java -Xms"$JAVA_XMS" -Xmx"$JAVA_XMX" $PARAMS -jar /data/server.jar nogui'
