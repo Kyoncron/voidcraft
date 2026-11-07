@@ -19,8 +19,9 @@ services:
       DIFFICULTY: ${DIFFICULTY}
       PARAMS: ${PRAMS}
     ports:
-      - ${TCP_PORT}/tcp
-      - ${UDP_PORT}/udp
+      - ${JAVA_PORT}/tcp
+      - ${BEDROCK_PORT}/udp
+      - ${BEDROCK_PORT}/tcp
       - ${MOD_PORTS}
       - ${VOICE_PORTS}/udp
 
