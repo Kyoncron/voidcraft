@@ -24,7 +24,8 @@ services:
       - ${BEDROCK_PORT}/tcp
       - ${MOD_PORTS}
       - ${VOICE_PORTS}/udp
-
+      - "${RCON_PORT}"
+      
     expose:
       - "${RCON_PORT}"
 
