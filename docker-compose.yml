@@ -25,10 +25,7 @@ services:
       - ${MOD_PORTS}/tcp
       - ${VOICE_PORTS}/udp
       - ${RCON_PORT}/tcp
-
-    expose:
-      - "${RCON_PORT}"
-
+      
     volumes:
       - ${DIRDATA}:/data
     networks:
