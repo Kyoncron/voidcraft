@@ -22,7 +22,7 @@ services:
       - ${JAVA_PORT}/tcp
       - ${BEDROCK_PORT}/udp
       - ${BEDROCK_PORT}/tcp
-      - ${MOD_PORTS}
+      - ${MOD_PORTS}/tcp
       - ${VOICE_PORTS}/udp
       - ${RCON_PORT}/tcp
 
